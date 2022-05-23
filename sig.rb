@@ -5,21 +5,21 @@
 class Sig < Formula
   desc "CLI tool for checking IPs against CIDR blocks"
   homepage "https://clokwork.net/sig/"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/clok/sig/releases/download/v0.2.0/sig_0.2.0_darwin_amd64.tar.gz"
-      sha256 "99c6d621acdee8aa25b13e3e227ef970495105ecb925f608e04528cdc171c535"
+    if Hardware::CPU.arm?
+      url "https://github.com/clok/sig/releases/download/v0.2.1/sig_0.2.1_darwin_arm64.tar.gz"
+      sha256 "8328dd3d99acf8023608ae195cb8ca1387a3743419b425a97e6b5f0923fdd8ec"
 
       def install
         bin.install "sig"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/clok/sig/releases/download/v0.2.0/sig_0.2.0_darwin_arm64.tar.gz"
-      sha256 "c12ee8b94408497d19fbfb8aa11e5bd731e43a37ad4896da4a0028c14c941e61"
+    if Hardware::CPU.intel?
+      url "https://github.com/clok/sig/releases/download/v0.2.1/sig_0.2.1_darwin_amd64.tar.gz"
+      sha256 "d5e928b722cd08b3d7500535d98b9ad54669c192646102cf6a97f43b4c834cf7"
 
       def install
         bin.install "sig"
@@ -28,25 +28,25 @@ class Sig < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/clok/sig/releases/download/v0.2.0/sig_0.2.0_linux_amd64.tar.gz"
-      sha256 "9f4ef3be53d79eb27e54f88d2cb2ba6b69ae1b917c8b349af4bd0b9b3997af26"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/clok/sig/releases/download/v0.2.1/sig_0.2.1_linux_arm64.tar.gz"
+      sha256 "c2db71efbde01e7b1460c5703c3221702aef44fa32593ff380786a506261ca14"
 
       def install
         bin.install "sig"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/clok/sig/releases/download/v0.2.0/sig_0.2.0_linux_armv6.tar.gz"
-      sha256 "f2d2d1310818cce35a169dfb822f771afce9d3ab1dc2b4a7c5de67a32a7a590c"
+      url "https://github.com/clok/sig/releases/download/v0.2.1/sig_0.2.1_linux_armv6.tar.gz"
+      sha256 "4da614dc9d09e1f00b45f0b08f12bd40c1ac7f2b1df12cdab91a134f131b8fee"
 
       def install
         bin.install "sig"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/clok/sig/releases/download/v0.2.0/sig_0.2.0_linux_arm64.tar.gz"
-      sha256 "2e4acb02a7c9e88f6dd1c09dfc3e02c5c9496111d9548b6ce5dc1431c2bb93b7"
+    if Hardware::CPU.intel?
+      url "https://github.com/clok/sig/releases/download/v0.2.1/sig_0.2.1_linux_amd64.tar.gz"
+      sha256 "e8f0a3e503e60989506657918c7581b3143b3a6af898f28b008cbd55f9f6115e"
 
       def install
         bin.install "sig"
